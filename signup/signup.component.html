@@ -1,0 +1,18 @@
+<p>signup works!</p>
+<!-- Design and implement a signup form using reactive forms. The form should include the following fields: username, email,
+password, a checkbox to confirm whether the user is older than 16, and a checkbox to agree to the terms and conditions.
+Apply custom validation such that the email must be a valid Gmail address (i.e., it should end with ‘@gmail.com’), and
+the password must contain at least one numeric digit. The signup button should remain disabled unless all validations
+pass and both checkboxes are selected, and it must also be disabled if the user indicates they are under 16. Upon
+successful signup, the form data should be sent to the API endpoint: https://api.test.com/signup. -->
+
+<form [formGroup]="form" (ngSubmit)="submit()">
+    <input type="text" placeholder="Username" formControlName="username">
+    <input type="email" placeholder="Email" formControlName="email">
+    <input type="password" placeholder="Password" formControlName="password">
+    <label for="age">Age is greater than 16</label>
+    <input type="checkbox" formControlName="age" >
+    <label for="age">Agree to terms and conditions</label>
+    <input type="checkbox" formControlName="conditions">
+    <button type="submit" [disabled]="form.invalid">Submit</button>
+</form>
